@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    </style>
+    <link rel="stylesheet" href="style.css">
+    <title> Horizontal Scroll Image Gallery</title>
+</head>
+
+<body>
+
+    <div class="gallery-wrap">
+        <img src="images/back.png" id="backBtn">
+        <div class="gallery">
+            <div>
+                <span><img src="images/g1.jpg"></span>
+                <span><img src="images/g2.jpg"></span>
+                <span><img src="images/g3.jpg"></span>
+            </div>
+            <div>
+                <span><img src="images/n1.jpg"></span>
+                <span><img src="images/n2.jpg"></span>
+                <span><img src="images/n3.jpg"></span>
+            </div>
+            <div>
+                <span><img src="images/r1.jpg"></span>
+                <span><img src="images/r2.jpg"></span>
+                <span><img src="images/r3.jpg"></span>
+            </div>
+            <div>
+                <span><img src="images/shriji.jpg"></span>
+                <span><img src="images/lalju.jpg"></span>
+                <span><img src="images/mantra.jpg"></span>
+            </div>
+        </div>
+        <img src="images/next.png" id="nextBtn">
+    </div>
+
+    <script>
+
+        let scrollContainer = document.querySelector(".gallery");
+        let backBtn = document.getElementById("backBtn")
+        let nextBtn = document.getElementById("nextBtn")
+
+        scrollContainer.addEventListener("wheel", (evt) => {
+            evt.preventDefault();
+            scrollContainer.scrollLeft += evt.deltaY;
+            scrollContainer.style.scrollBehavior = "auto";
+
+        });
+
+        nextBtn.addEventListener("click", () => {
+            scrollContainer.style.scrollBehavior = "smooth";
+            scrollContainer.scrollLeft += 900;
+        });
+
+
+        backBtn.addEventListener("click", () => {
+            scrollContainer.style.scrollBehavior = "smooth";
+            scrollContainer.scrollLeft -= 900;
+        })
+
+
+    </script>
+
+</body>
+
+</html>
